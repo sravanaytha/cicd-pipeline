@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> registartion form</title>
+        <style>
+            #content{
+                text-align:center;
+                border:5px solid cyan;
+                border-radius: 5px;
+                padding:3px;
+                width:550px;
+                margin-top: 150px;
+                margin-left: 500px;
+                margin-right:300px;
+                font-size:25px;
+            }
+            #submit{
+                border:2px solid black;
+                border-radius: 5px;
+                width:150px;
+                height:50px;
+                font-size: 20px;
+                margin:20px;
+            }
+        </style>
+	</head>
+	<body>
+        <div id="content">
+        <h1>registration form</h1>
+		<form action="/signup" method="post">
+			<label>
+				enter the user name :
+			</label>
+			<input type="text" id="uname" name="name"/>
+			<br><br/><label>
+				enter the password :
+			</label>
+			<input type="password" id="upwd" name="pwd"/><br/><br/>
+			<input type="submit" value="register" id="submit">
+		</form>
+    </div>
+	</body>
+</html>
