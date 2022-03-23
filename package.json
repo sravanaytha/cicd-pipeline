@@ -1,0 +1,21 @@
+{
+  "name": "cicd-pipeline",
+  "version": "1.0.0",
+  "description": "to create pipeline buy the implementing the chat ",
+  "main": "server.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "no"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "sravan_aytha",
+  "license": "UNLICENSED"
+}
