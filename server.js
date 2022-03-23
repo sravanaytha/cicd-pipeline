@@ -46,36 +46,35 @@ app.post("/signup",(req,res)=>{
       fs.writeFile("user.json", json, () => {});
     }
   });
+  
+  res.sendFile(__dirname + '/login.html')
 }
 else{
+  res.send("<h1> user already exists</h1> <br/>")
+  setTimeout(function () {
+   // res.sendFile(__dirname + '/register.html')
+}, 5000); 
+  //
   console.log("user already exists")
+
 }
-  res.sendFile(__dirname + '/login.html')
+
+  
 
 })
 
 app.get("/login",(req,res)=>{
-  /*//console.log(req)
-  var name=req.body.name
-  var pwd=req.body.pwd
-  console.log(name,pwd)
-  fs.readFile("user.json", function readFileCallback(err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      var obj = JSON.parse(data);
-      obj.table.push({
-        uname: name,
-        password:pwd,
-      });
-
-      let json = JSON.stringify(obj);
-      fs.writeFile("user.json", json, () => {});
-    }
-  });*/
+    res.sendFile(__dirname + '/login.html')
+})
+app.get("/login.html",(req,res)=>{
   res.sendFile(__dirname + '/login.html')
 })
-
+app.get("/register.html",(req,res)=>{
+  res.sendFile(__dirname + '/register.html')
+})
+app.get("/register",(req,res)=>{
+  res.sendFile(__dirname + '/register.html')
+})
 // login route for post
 app.post("/login",(req,res)=>{
   //console.log(req)
@@ -104,7 +103,7 @@ app.post("/login",(req,res)=>{
             }
             else{
               console.log("incorrect")
-              res.send("detail are incorrect")
+              res.send("<h1>detail are incorrect</h1>")
             }
   
 })
@@ -130,6 +129,9 @@ wss.on("connection",socket=>{
             if(s.id!=socket.id ){
             
                 s.send(socket.name+":"+msg.toString())
+            }
+            else{
+              s.send("self-socket:"+msg.toString())
             }
         });
      

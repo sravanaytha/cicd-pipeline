@@ -5,68 +5,85 @@
     <script>
         var client = new WebSocket("ws://localhost:8088")
 
-function send(){
-    let msg=document.getElementById("chat").value;
-    document.getElementById("chat").value=""
-    client.send(msg)
-}
+        function send(){
+            let msg=document.getElementById("chat").value;
+            document.getElementById("chat").value=""
+            client.send(msg)
+        }
 
 
-client.onmessage=async(data) => {
-    let msg=data.data
-    let str=document.getElementById("chat_display").value+"<br/>"
-    document.getElementById("chat_display").value+=msg;
-}
+        client.onmessage=async(data) => {
+            let msg=data.data
+            let test=msg.slice(0,11)
+            if(test!="self-socket"){
+            let str=document.getElementById("chat_div").value
+            document.getElementById("chat_div").innerHTML+= "<p>"+msg+"</p>";
+            }
+            else{
+                let str=document.getElementById("chat_div").value
+            document.getElementById("chat_div").innerHTML+= "<p style='float:right'>"+msg.slice(12,msg.length)+"</p>";
+            }
+        }
     </script>
-    <style>
-     #content{
-         border:5px solid brown;
-         border-radius:10px ;
-         width:900px;
-         height:550px;
-         margin-left:350px;
-         margin-top:50px;
 
-     }
-     #chat{
-         border:3px solid black;
-         border-radius: 5px;
-         margin-top: 300px;
-         margin-left:50px;
-         width:350px;
-         height:100px;
-     }
-     #chat_display{
-         border:3px solid black;
-         border-radius: 5px;
-         margin-top: -375px;
-         margin-left:50px;
-         float:right;
-         margin-right: 25px;
-         height:400px;
-         width:300px;
-     }
-     h3{
-         float:right;
-         margin-top: 20px;
-         margin-right:100px;
-     }
-     #submit{
-         width:100px;
-         height:45px;
-         border: 3px solid magenta;
-         border-radius: 5px;
+    <style>
+        p{
+            margin-top: 0;
+        }
         
-     }
+        #content{
+            border:5px solid brown;
+            position: relative;
+            border-radius:10px ;
+            width:900px;
+            height:550px;
+            margin-left:350px;
+            margin-top:50px;
+        }
+
+        #chat{
+            border:3px solid black;
+            border-radius: 5px;
+            margin-top: 300px;
+            margin-left:50px;
+            width:350px;
+            height:100px;
+        }
+
+        #chat_display{
+            top: 50px;
+            right:20px;
+            position: absolute;
+            margin-right: 25px;
+            word-wrap: break-word;
+        }
+
+        #chat_div{
+            border:3px solid black;
+            border-radius: 5px;
+            height:400px;
+            width:300px;
+        }
+
+        #submit{
+            width:100px;
+            height:45px;
+            border: 3px solid magenta;
+            border-radius: 5px;
+        }
+
     </style>
 </head>
 <body>
     <div id="content">
-    <center><h1> CHAT WINDOW </h1></center>    
-    <textarea id="chat" placeholder="you can type here to send the message . . ."></textarea>
-    <input type="submit" value="send message" onclick="send()" id="submit"/>
-    <h3> INCOMING MESSAGES </h3>
-    <textarea id="chat_display"></textarea>
-</div>
+        <h1> CHAT WINDOW </h1> 
+        <textarea id="chat" placeholder="you can type here to send the message . . ."></textarea>
+        <input type="submit" value="send message" onclick="send()" id="submit"/>
+        
+        <div id="chat_display">
+            <h3 style="text-align:center"> INCOMING MESSAGES </h3>
+            <div id="chat_div"></div>
+        </div>
+    </div>
 </body>
 </html>
