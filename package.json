@@ -1,7 +1,7 @@
 {
   "name": "cicd-pipeline",
   "version": "1.0.0",
-  "description": "to create pipeline buy the implementing the chat ",
+  "description": "sample chat application to implement the ci-cd pipeline",
   "main": "server.js",
   "directories": {
     "doc": "doc"
