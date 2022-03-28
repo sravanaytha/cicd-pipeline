@@ -131,7 +131,7 @@ wss.on("connection",socket=>{
                 s.send(socket.name+":"+msg.toString())
             }
             else{
-              s.send("self-socket:"+msg.toString())
+              s.send("me"+msg.toString())
             }
         });
      
