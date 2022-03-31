@@ -3,7 +3,7 @@
     <head>
     <title>chat page</title>
     <script>
-        var client = new WebSocket("'ws://sravaanchat-env-1.eba-ccva8tpj.ap-south-1.elasticbeanstalk.com/")
+        var client = new WebSocket("wscat -c ws://sravaanchat-env-1.eba-ccva8tpj.ap-south-1.elasticbeanstalk.com/")
         function send(){
             let msg=document.getElementById("chat").value;
             document.getElementById("chat").value=""
