@@ -19,7 +19,8 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "ws":"^8.5.0"
+    "ws":"^8.5.0",
+    "wscat":"^5.1.0"
     
   },
   "author": "sravan_aytha",
