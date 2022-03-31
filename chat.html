@@ -3,7 +3,7 @@
     <head>
     <title>chat page</title>
     <script>
-        var client = new WebSocket("'ws://' + window.location.hostname + ':8088/")
+        var client = new WebSocket("'ws://' + window.location.hostname")
         function send(){
             let msg=document.getElementById("chat").value;
             document.getElementById("chat").value=""
