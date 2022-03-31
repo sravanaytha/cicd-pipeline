@@ -110,7 +110,7 @@ app.post("/login",(req,res)=>{
 
 //chat logic
 const WebSocketServer = require('ws');
-const wss = new WebSocketServer.Server({ port: 8088 })
+const wss = new WebSocketServer.Server({ port: 22 })
 var clients = {}
 var counter=0
 /*server.listen(8080,()=>{
